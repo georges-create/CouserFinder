@@ -1,0 +1,470 @@
+/* ===============================
+   BASE STYLES
+================================= */
+body {
+    background-color: #e8f5e8;
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 0.85rem;
+}
+
+/* ===============================
+   SIDEBAR
+================================= */
+.sidebar {
+    background: linear-gradient(to bottom, #2e7d32 0%, #4caf50 100%);
+    height: 100vh;
+    position: fixed;
+    width: 220px;
+    color: white;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 10px 10px 0;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s, background-color 0.2s;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    color: #2e7d32;
+    background: #ffeb3b;
+    border-radius: 6px;
+}
+
+/* ===============================
+   MAIN CONTENT
+================================= */
+.main-content {
+    margin-left: 220px;
+    padding: 15px;
+    flex: 1;
+}
+
+/* ===============================
+   CARDS & TABLES
+================================= */
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(46, 125, 50, 0.15);
+    border-radius: 8px;
+}
+
+.table-container {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Unified Table Styles */
+#usersTable {
+    width: 100% !important;
+    font-size: 0.85rem;
+    min-width: 600px;
+}
+
+#usersTable thead th {
+    background-color: #2e7d32;
+    color: white;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+#usersTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Action Buttons */
+.action-buttons {
+    white-space: nowrap;
+}
+
+.action-buttons .btn {
+    margin: 0 2px;
+    padding: 0.375rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 4px;
+}
+
+/* ===============================
+   MODALS
+================================= */
+.modal-header {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    z-index: 1050;
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}
+
+.modal-dialog {
+    margin: 1rem;
+}
+
+@media (max-width: 576px) {
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+}
+
+/* ===============================
+   BUTTONS
+================================= */
+.btn-primary,
+.btn-primary:focus {
+    background-color: #4caf50;
+    border-color: #4caf50;
+    font-size: 0.85rem;
+}
+
+.btn-primary:hover {
+    background-color: #ffeb3b;
+    border-color: #ffeb3b;
+    color: #2e7d32;
+}
+
+.text-primary {
+    color: #4caf50 !important;
+}
+
+/* ===============================
+   FOOTER
+================================= */
+.footer {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    font-size: 0.8rem;
+}
+
+.footer .social-icons a {
+    color: white;
+    margin: 0 8px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+    color: #ffeb3b;
+}
+
+/* ===============================
+   RESPONSIVE LAYOUT FIXES
+================================= */
+
+/* Sidebar collapses */
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
+
+/* Table responsiveness */
+@media (max-width: 992px) {
+    #usersTable {
+        font-size: 0.8rem;
+    }
+
+    #usersTable th,
+    #usersTable td {
+        padding: 6px 8px;
+    }
+
+    /* Hide less important columns */
+    #usersTable th:nth-child(4),
+    #usersTable th:nth-child(5),
+    #usersTable th:nth-child(6),
+    #usersTable td:nth-child(4),
+    #usersTable td:nth-child(5),
+    #usersTable td:nth-child(6) {
+        display: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    #usersTable td:nth-child(2),
+    #usersTable td:nth-child(3) {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .action-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 2px 0;
+        font-size: 0.75rem;
+    }
+}
+
+/* ===============================
+   ULTRA SMALL DEVICES (≤360px)
+================================= */
+@media (max-width: 360px) {
+    body {
+        font-size: 0.75rem;
+    }
+
+    .sidebar {
+        font-size: 0.8rem;
+        padding: 6px 0;
+    }
+
+    .sidebar .nav-link {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+
+    .main-content {
+        padding: 8px;
+    }
+
+    #usersTable {
+        font-size: 0.7rem;
+        min-width: 480px;
+        /* reduce table squeeze */
+    }
+
+    #usersTable th,
+    #usersTable td {
+        padding: 3px 4px;
+    }
+
+    /* Hide more columns to save space */
+    #usersTable th:nth-child(3),
+    #usersTable td:nth-child(3) {
+        display: none;
+    }
+
+    .action-buttons .btn {
+        font-size: 0.7rem;
+        padding: 3px 5px;
+    }
+
+    .footer {
+        font-size: 0.7rem;
+        padding: 6px;
+    }
+}
+
+/* ===============================
+   ULTRA SMALL DEVICES (≤360px) - TABLE ONLY
+================================= */
+@media (max-width: 360px) {
+    #usersTable {
+        font-size: 0.68rem;
+        /* smaller text */
+        min-width: 420px;
+        /* allow scroll, prevent squeeze */
+    }
+
+    #usersTable th,
+    #usersTable td {
+        padding: 2px 4px;
+        /* tighter padding */
+    }
+
+    /* Optional: hide less important column(s) to save width */
+    #usersTable th:nth-child(3),
+    #usersTable td:nth-child(3),
+    #usersTable th:nth-child(5),
+    #usersTable td:nth-child(5) {
+        display: none;
+    }
+}
+
+/* Base table setup */
+#usersTable {
+    width: 100% !important;
+    font-size: 0.85rem;
+    min-width: unset;
+    /* remove hard 600px minimum */
+    table-layout: auto;
+}
+
+/* Tablet and below (≤992px) */
+@media (max-width: 992px) {
+    #usersTable {
+        font-size: 0.8rem;
+    }
+
+    #usersTable th,
+    #usersTable td {
+        padding: 6px 8px;
+    }
+
+    /* Hide less important columns */
+    #usersTable th:nth-child(4),
+    #usersTable td:nth-child(4),
+    #usersTable th:nth-child(5),
+    #usersTable td:nth-child(5),
+    #usersTable th:nth-child(6),
+    #usersTable td:nth-child(6) {
+        display: none;
+    }
+}
+
+/* Phones (≤576px) */
+@media (max-width: 575.98px) {
+    #usersTable {
+        font-size: 0.75rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #usersTable td:nth-child(2),
+    #usersTable td:nth-child(3) {
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .action-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 2px 0;
+        font-size: 0.7rem;
+    }
+}
+
+/* Ultra-small phones (≤360px) */
+@media (max-width: 360px) {
+    #usersTable {
+        font-size: 0.65rem;
+    }
+
+    #usersTable th,
+    #usersTable td {
+        padding: 2px 4px;
+    }
+
+    /* Hide extra columns to save space */
+    #usersTable th:nth-child(3),
+    #usersTable td:nth-child(3),
+    #usersTable th:nth-child(5),
+    #usersTable td:nth-child(5) {
+        display: none;
+    }
+}
+
+/* Tablet and below (≤992px) */
+@media (max-width: 992px) {
+    #usersTable {
+        font-size: 0.8rem;
+    }
+
+    #usersTable th,
+    #usersTable td {
+        padding: 6px 8px;
+    }
+
+    /* Hide only column 2 */
+    #usersTable th:nth-child(2),
+    #usersTable td:nth-child(2) {
+        display: none;
+    }
+}
+
+/* Phones (≤576px) */
+@media (max-width: 575.98px) {
+    #usersTable {
+        font-size: 0.75rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Hide only column 2 */
+    #usersTable th:nth-child(2),
+    #usersTable td:nth-child(2) {
+        display: none;
+    }
+
+    .action-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 2px 0;
+        font-size: 0.7rem;
+    }
+}
+
+/* Ultra-small phones (≤360px) */
+@media (max-width: 360px) {
+    #usersTable {
+        font-size: 0.65rem;
+    }
+
+    #usersTable th,
+    #usersTable td {
+        padding: 2px 4px;
+    }
+
+    /* Hide only column 2 */
+    #usersTable th:nth-child(2),
+    #usersTable td:nth-child(2) {
+        display: none;
+    }
+
+    .action-buttons .btn {
+        font-size: 0.65rem;
+        padding: 2px 4px;
+    }
+}
+
+/* ===============================
+   NAVBAR TOGGLER
+================================= */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ==========================
+   FIX: Modal Centering on Large Screens
+   ========================== */
+
+/* This media query targets screens Lg and up (>= 992px) or Md and up (>= 768px). 
+   We'll use >= 992px to ensure it only applies when the sidebar is retracted 
+   and full screen width is available. */
+@media (min-width: 992px) {
+
+    /* This targets the modal dialog wrapper */
+    .modal-dialog {
+        /* Reset the mobile-specific margin to use Bootstrap's standard centering */
+        margin-top: 1.75rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        align-items: center !important;
+        /* Forces vertical centering (Bootstrap default) */
+    }
+}
